@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package messenger;
+
+service Messenger {
+    rpc squareNum(stream Num) returns (stream Num) {}
+
+    rpc sendNums(Array) returns (google.protobuf.Empty) {}
+}
+
+message Num {
+    int32 num = 1;
+}
+
+message Array {
+    repeated int32 arr = 1;
+}
